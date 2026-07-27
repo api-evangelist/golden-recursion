@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/goldenrecursion/godel
+notes: >-
+  Golden Recursion's first-party client library is godel, the open-source Python
+  SDK for Golden's decentralized knowledge-graph protocol (GraphQL). The REST
+  "Golden API v2" (openapi/golden-recursion-openapi-original.json) ships no
+  dedicated client SDK and is called directly over HTTPS with an apikey header.
+packages:
+  - language: python
+    registry: pypi
+    name: godel
+    url: https://pypi.org/project/godel/
+    source: https://github.com/goldenrecursion/godel
+    install: pip install godel
+    license: Apache-2.0
+    official: true
+    description: >-
+      Golden's Python SDK — API wrapper, data-processing framework and web3
+      toolkit for programmatic query and ingest against the Golden protocol
+      GraphQL API (GoldenAPI client, JWT auth).
+  - language: python
+    registry: pypi
+    name: goldnlp
+    url: https://pypi.org/project/goldnlp/
+    source: https://github.com/goldenrecursion/goldnlp
+    install: pip install goldnlp
+    license: Apache-2.0
+    official: true
+    description: >-
+      NLP/NLU Python package and framework for the Golden Knowledge Graph
+      Protocol.

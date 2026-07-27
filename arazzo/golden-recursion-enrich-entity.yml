@@ -1,0 +1,51 @@
+arazzo: 1.0.1
+info:
+  title: Golden — discover schema then enrich an entity
+  version: 1.0.0
+  summary: Introspect the predicate schema, search entities by type, then retrieve the full cited entity.
+sourceDescriptions:
+  - name: golden
+    url: ../openapi/golden-recursion-openapi-original.json
+    type: openapi
+workflows:
+  - workflowId: enrichEntity
+    summary: List predicates, search entities by type, and retrieve the full entity with citations.
+    inputs:
+      type: object
+      properties:
+        entityTypeIds:
+          type: string
+          default: "6"
+        pageSize:
+          type: integer
+          default: 20
+    steps:
+      - stepId: listPredicates
+        operationId: public_api_schema_predicates_list
+        successCriteria:
+          - condition: $statusCode == 200
+      - stepId: listEntities
+        operationId: public_api_entities_list
+        parameters:
+          - name: entityTypeIds
+            in: query
+            value: $inputs.entityTypeIds
+          - name: pageSize
+            in: query
+            value: $inputs.pageSize
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          firstEntityId: $response.body#/results/0/id
+      - stepId: getEntity
+        operationId: public_api_entities_retrieve
+        parameters:
+          - name: id
+            in: path
+            value: $steps.listEntities.outputs.firstEntityId
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          properties: $response.body#/properties
+    outputs:
+      properties: $steps.getEntity.outputs.properties

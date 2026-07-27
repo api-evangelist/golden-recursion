@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.golden.com/ and openapi/golden-recursion-openapi-original.json
+notes: >-
+  Versioning is URI-path based (v2 in the path). No public status page was found
+  (status.golden.com does not resolve). No formal deprecation policy or
+  Sunset/Deprecation header support was documented, and no operations are marked
+  deprecated in the spec — so no StatusPage or Deprecation pointer is emitted.
+versioning:
+  scheme: uri-path
+  current: v2
+  base_path: /api/v2/public
+  docs: https://docs.golden.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+roadmap: https://golden.com/roadmap
+deprecated_operations: []

@@ -1,0 +1,44 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/golden-recursion-openapi-original.json
+notes: >-
+  Cross-cutting semantics for Golden API v2, derived from the OpenAPI and the
+  public docs. The API is read-only (all operations are GET), so there is no
+  idempotency-key contract — no Idempotency pointer is emitted.
+authentication:
+  style: api-key
+  location: header
+  parameter: apikey
+  ref: authentication/golden-recursion-authentication.yml
+idempotency:
+  supported: false
+  reason: All public operations are GET (read-only); no state-changing requests.
+pagination:
+  style: cursor
+  request_params: [cursor, pageSize]
+  default_page_size: 20
+  response_fields: [next, previous, results]
+  notes: next/previous are absolute URLs; follow next until null.
+filtering:
+  params: [entityTypeIds, ids, predicateIds, filterPredicateId, filterValue]
+  notes: >-
+    Restrict entities by type or IDs; project properties with predicateIds;
+    filter by a single predicate value with filterPredicateId + filterValue
+    (only predicates whose schema isFilterable=true).
+versioning:
+  style: uri-path
+  current: v2
+  ref: lifecycle/golden-recursion-lifecycle.yml
+error_envelope:
+  style: drf
+  shape: '{ type, errors: [ { code, detail, attr } ] }'
+  content_type: application/json
+  ref: errors/golden-recursion-problem-types.yml
+rate_limiting:
+  signaled: true
+  mechanism: HTTP 429 throttled response (client_error/throttled)
+  ref: errors/golden-recursion-problem-types.yml
+citations:
+  notes: >-
+    Entity property values carry citations (title + url) so every value can be
+    traced to its source — a defining convention of the Golden knowledge graph.

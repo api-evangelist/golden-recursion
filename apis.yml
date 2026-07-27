@@ -1,22 +1,166 @@
 aid: golden-recursion
 name: Golden Recursion
-description: Golden Recursion is a company surfaced as a portfolio company of a16z and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Golden Recursion Inc. builds Golden, a San Francisco company using machine
+  intelligence to construct a self-building knowledge graph of millions of
+  connected entities — companies, people, venture-capital firms and products —
+  each described by structured, cited properties. The Golden API v2 gives
+  developers read-only, programmatic access to the same data that powers the
+  Golden Query Tool: retrieve entities and their cited properties, pull the
+  results of saved queries by ID or permalink, and introspect the entity-type
+  and predicate schema. Responses are structured JSON with underlying source
+  citations so every value can be traced. Authentication is a simple apikey
+  header. Golden also ships godel, an open-source Python SDK for its protocol
+  GraphQL API. Backed by a16z.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://golden.com/static/images/38d57130206f78fb48c9.png
 url: https://raw.githubusercontent.com/api-evangelist/golden-recursion/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: real-api-enriched
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Knowledge Graph
+- Data Enrichment
+- Entity Data
+- Company Data
+- Artificial Intelligence
+- Semantic Web
+- Data
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: golden-recursion:golden-recursion-entity-api-api
+  name: Golden Recursion Entity API API
+  description: The Entity API API from Golden Recursion — 2 operation(s) for entity api.
+  humanURL: https://docs.golden.com/
+  baseURL: https://golden.com/api/v2/public
+  tags:
+  - Entity API
+  properties:
+  - type: OpenAPI
+    url: openapi/golden-recursion-entity-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.golden.com/
+  - type: APIReference
+    url: https://docs.golden.com/
+  - type: GettingStarted
+    url: https://golden.com/product/api
+- aid: golden-recursion:golden-recursion-query-api-api
+  name: Golden Recursion Query API API
+  description: The Query API API from Golden Recursion — 2 operation(s) for query api.
+  humanURL: https://docs.golden.com/
+  baseURL: https://golden.com/api/v2/public
+  tags:
+  - Query API
+  properties:
+  - type: OpenAPI
+    url: openapi/golden-recursion-query-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.golden.com/
+  - type: APIReference
+    url: https://docs.golden.com/
+  - type: GettingStarted
+    url: https://golden.com/product/api
+- aid: golden-recursion:golden-recursion-schema-api-api
+  name: Golden Recursion Schema API API
+  description: The Schema API API from Golden Recursion — 4 operation(s) for schema api.
+  humanURL: https://docs.golden.com/
+  baseURL: https://golden.com/api/v2/public
+  tags:
+  - Schema API
+  properties:
+  - type: OpenAPI
+    url: openapi/golden-recursion-schema-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.golden.com/
+  - type: APIReference
+    url: https://docs.golden.com/
+  - type: GettingStarted
+    url: https://golden.com/product/api
+common:
+- type: DeveloperPortal
+  url: https://golden.com/product/api
+- type: Documentation
+  url: https://docs.golden.com/
+- type: APIReference
+  url: https://docs.golden.com/
+- type: GettingStarted
+  url: https://golden.com/product/api
+- type: Support
+  url: https://golden.com/help
+- type: Blog
+  url: https://golden.com/blog
+- type: GitHubOrganization
+  url: https://github.com/goldenrecursion
+- type: Roadmap
+  url: https://golden.com/roadmap
+- type: Pricing
+  url: https://golden.com/pricing
+- type: SignUp
+  url: https://golden.com/signup
+- type: Login
+  url: https://golden.com/login
+- type: TermsOfService
+  url: https://golden.com/terms
+- type: PrivacyPolicy
+  url: https://golden.com/privacy
+- type: Authentication
+  url: authentication/golden-recursion-authentication.yml
+- type: Conventions
+  url: conventions/golden-recursion-conventions.yml
+- type: ErrorCatalog
+  url: errors/golden-recursion-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/golden-recursion-lifecycle.yml
+- type: Conformance
+  url: conformance/golden-recursion-conformance.yml
+- type: DataModel
+  url: data-model/golden-recursion-data-model.yml
+- type: Packages
+  url: packages/golden-recursion-packages.yml
+- type: SDKs
+  url: packages/golden-recursion-packages.yml
+- type: MCPServer
+  url: mcp/golden-recursion-mcp.yml
+- type: LLMsTxt
+  url: llms/golden-recursion-llms.txt
+- type: Overlay
+  url: overlays/golden-recursion-openapi-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Discover schema then enrich an entity
+  url: arazzo/golden-recursion-enrich-entity.yml
+- type: Arazzo
+  name: Run a saved query by permalink
+  url: arazzo/golden-recursion-saved-query.yml
+- type: AgenticAccess
+  url: agentic-access/golden-recursion-agentic-access.yml
+- type: DomainSecurity
+  url: security/golden-recursion-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,67 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/golden-recursion-openapi-original.json
+notes: >-
+  Entity-relationship graph derived from the Golden API v2 OpenAPI component
+  schemas and id-reference fields. Golden is a knowledge graph: Entities are
+  typed by EntityType, described by Predicates (properties), and every property
+  value carries Citations.
+entities:
+  - name: Entity
+    schema: PublicAPIEntity
+    id_field: id
+    description: A node in the Golden knowledge graph with an array of cited properties.
+    relationships:
+      - type: has_many
+        target: EntityProperty
+        via: properties
+      - type: belongs_to
+        target: EntityType
+        via: entityTypeIds (filter)
+  - name: EntityType
+    schema: PublicAPIEntityType
+    id_field: id
+    description: The type/template of an entity (e.g. Company=6, Person=36); defines its predicates.
+    relationships:
+      - type: has_many
+        target: Predicate
+        via: predicates
+      - type: has_many
+        target: EntityProperty
+        via: properties
+  - name: Predicate
+    schema: PublicAPIPredicate
+    id_field: id
+    description: A property definition (name, type, filterability) on the graph. Types include int, intrange, float, text, url, entity, location, json.
+    relationships:
+      - type: has_many
+        target: EntityType
+        via: objectEntityTypes
+      - type: has_many
+        target: PredicateObjectChoice
+        via: objectChoices
+      - type: has_many
+        target: Predicate
+        via: objectJsonPredicates (subpredicates)
+  - name: EntityProperty
+    schema: PublicAPIEntityProperty
+    description: An instance of a predicate on an entity, holding value(s) and citations.
+    relationships:
+      - type: belongs_to
+        target: Predicate
+        via: predicate
+      - type: has_many
+        target: Citation
+        via: citations
+  - name: Citation
+    schema: PublicAPICitation
+    description: The source (title + url) backing a property value.
+    relationships: []
+  - name: Query
+    schema: PublicAPIQuery
+    id_field: id
+    description: A saved natural-language query whose results are lists of entities.
+    relationships:
+      - type: has_many
+        target: Entity
+        via: results

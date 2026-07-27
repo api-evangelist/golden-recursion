@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/golden-recursion-openapi-original.json
+workflows:
+  - file: golden-recursion-enrich-entity.yml
+    workflowId: enrichEntity
+    title: Discover schema then enrich an entity
+    summary: List predicates, search entities by type, and retrieve the full cited entity.
+  - file: golden-recursion-saved-query.yml
+    workflowId: runSavedQuery
+    title: Run a saved query by permalink
+    summary: Resolve a saved Golden query by permalink and page through its entity results.

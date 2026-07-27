@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: probe of /.well-known/* on golden.com and docs.golden.com
+notes: >-
+  No genuine machine-readable .well-known discovery document is published. On
+  golden.com every probed path returns 404. On docs.golden.com every path
+  returns HTTP 200 but serves the Scalar API-reference SPA HTML (content-type
+  text/html) rather than a real well-known document — these are catch-all
+  false positives and are NOT indexed as documents below. No apis.yml WellKnown
+  pointer is emitted.
+hosts:
+  - host: https://golden.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://docs.golden.com
+    documents:
+      - {path: /.well-known/security.txt, status: 200, real: false, note: SPA catch-all HTML, not a security.txt}
+      - {path: /.well-known/openid-configuration, status: 200, real: false, note: SPA catch-all HTML}
+      - {path: /.well-known/oauth-authorization-server, status: 200, real: false, note: SPA catch-all HTML}
+      - {path: /.well-known/api-catalog, status: 200, real: false, note: SPA catch-all HTML}
+      - {path: /.well-known/ai-plugin.json, status: 200, real: false, note: SPA catch-all HTML}

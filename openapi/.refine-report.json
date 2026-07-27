@@ -1,0 +1,18 @@
+{
+  "provider": "golden-recursion",
+  "sources": [
+    "golden-recursion-entity-api-api-openapi.yml",
+    "golden-recursion-query-api-api-openapi.yml",
+    "golden-recursion-schema-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "golden-recursion-entity-api-api-openapi.yml",
+    "golden-recursion-query-api-api-openapi.yml",
+    "golden-recursion-schema-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

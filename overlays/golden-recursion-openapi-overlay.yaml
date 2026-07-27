@@ -1,0 +1,29 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Golden API v2
+  version: 1.0.0
+extends: openapi/golden-recursion-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: golden-recursion
+      x-apievangelist-product: Golden Knowledge Graph API
+      x-apievangelist-auth: apiKey (header "apikey")
+      x-apievangelist-pagination: cursor (cursor + pageSize params; next/previous URL fields)
+      x-apievangelist-read-only: true
+      x-apievangelist-error-envelope: drf ({type, errors[{code, detail, attr}]})
+  - target: $.info
+    update:
+      description: >-
+        Golden API v2 provides read-only, programmatic access to the Golden
+        knowledge graph — millions of connected entities (companies, people,
+        VCs, products) with structured, cited properties. Query the same data
+        that powers the Golden Query Tool, retrieve entities and saved-query
+        results, and introspect the entity-type and predicate schema.
+        Authenticate with an apikey header. See apis.io enrichment artifacts
+        (conventions, errors, data-model, authentication) for cross-cutting
+        semantics.
+  - target: $.servers
+    update:
+      - url: https://golden.com/
+        description: Golden Public API V2 production

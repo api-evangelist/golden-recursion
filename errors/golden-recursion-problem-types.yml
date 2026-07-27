@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/golden-recursion-openapi-original.json
+format: drf-error
+notes: >-
+  Golden API v2 does not use RFC 9457 problem+json. Errors are returned as
+  application/json with a Django-REST-Framework envelope:
+  { "type": "client_error|validation_error|server_error",
+    "errors": [ { "code": "...", "detail": "...", "attr": null } ] }.
+  Derived from the OpenAPI 4xx/5xx responses shared across all operations.
+envelope:
+  type_field: type
+  errors_field: errors
+  error_fields: [code, detail, attr]
+problems:
+  - status: 400
+    type: client_error
+    code: parse_error
+    title: Malformed request / parse error
+    remediation: Fix the request syntax or invalid query-string parameters.
+    applies_to: all operations
+  - status: 403
+    type: client_error
+    code: permission_denied
+    title: Permission denied
+    remediation: Provide a valid apikey header with access to the requested resource.
+    applies_to: all operations
+  - status: 404
+    type: client_error
+    code: not_found
+    title: Resource not found
+    remediation: Verify the entity ID, entity-type ID, predicate ID, query ID or permalink exists.
+    applies_to: all operations
+  - status: 429
+    type: client_error
+    code: throttled
+    title: Rate limited / throttled
+    remediation: Back off and retry after the throttle window; reduce request rate.
+    applies_to: all operations
+  - status: 500
+    type: server_error
+    code: error
+    title: Internal server error
+    remediation: Retry later; contact support@golden.co if it persists.
+    applies_to: all operations
