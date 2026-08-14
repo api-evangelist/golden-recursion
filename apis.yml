@@ -10,8 +10,11 @@ description: >-
   results of saved queries by ID or permalink, and introspect the entity-type
   and predicate schema. Responses are structured JSON with underlying source
   citations so every value can be traced. Authentication is a simple apikey
-  header. Golden also ships godel, an open-source Python SDK for its protocol
-  GraphQL API. Backed by a16z.
+  header. Golden also published godel, an open-source Python SDK for its
+  separate golden.xyz protocol GraphQL API. Backed by a16z ($59.5M raised);
+  Golden was acquired by ComplyAdvantage on 2024-04-24 and golden.com now serves
+  an acquisition notice, though the API v2 endpoints and the Scalar API
+  reference at docs.golden.com remain live and were re-verified 2026-08-14.
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -34,7 +37,7 @@ x-tier: enriched
 x-tier-reason: real-api-enriched
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-14'
 tags:
 - Company
 - Knowledge Graph
@@ -108,13 +111,11 @@ common:
 - type: GettingStarted
   url: https://golden.com/product/api
 - type: Support
-  url: https://golden.com/help
-- type: Blog
-  url: https://golden.com/blog
+  url: https://goldenhq.notion.site/goldenhq/Golden-Guide-1eef7518f3ca43da8d6ee4d54307801b
+- type: HelpCenter
+  url: https://goldenhq.notion.site/goldenhq/Golden-Guide-1eef7518f3ca43da8d6ee4d54307801b
 - type: GitHubOrganization
   url: https://github.com/goldenrecursion
-- type: Roadmap
-  url: https://golden.com/roadmap
 - type: Pricing
   url: https://golden.com/pricing
 - type: SignUp
@@ -122,9 +123,9 @@ common:
 - type: Login
   url: https://golden.com/login
 - type: TermsOfService
-  url: https://golden.com/terms
+  url: https://golden.com/about/terms-of-service
 - type: PrivacyPolicy
-  url: https://golden.com/privacy
+  url: https://golden.com/about/privacy-policy
 - type: Authentication
   url: authentication/golden-recursion-authentication.yml
 - type: Conventions
@@ -159,8 +160,21 @@ common:
   url: agentic-access/golden-recursion-agentic-access.yml
 - type: DomainSecurity
   url: security/golden-recursion-domain-security.yml
+- type: Plans
+  url: plans/golden-recursion-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/golden-recursion-rate-limits.yml
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-14'
+  status: enriched
+  artifacts_added: 2
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Round 2. Re-verified the live contract (docs.golden.com/openapi.json is
+    byte-identical to the captured original). Added plans + rate-limits from the
+    provider's own pages and a live header probe. Corrected the packages
+    artifact (godel/goldnlp are name-only on PyPI with zero published files) and
+    the lifecycle artifact (ComplyAdvantage acquisition 2024-04-24; docs are a
+    static snapshot after the "pathfinder" spec server was decommissioned
+    2026-07-02). Removed Blog and Roadmap pointers and repaired
+    Support/TermsOfService/PrivacyPolicy, which pointed at soft-200 SPA shells.
