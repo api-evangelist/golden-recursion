@@ -42,6 +42,8 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Golden Recursion is a company surfaced as a portfolio company of a16z and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Golden Recursion Inc. built Golden, a San Francisco company (2017–2024) that used machine intelligence to construct a self-building knowledge graph of millions of connected entities — companies, people, venture-capital firms and products — each described by structured, cited properties. The Golden API v2 gives read-only, programmatic access to the same data that powers the Golden Query Tool.
 
-Backed by: a16z
+Golden was acquired by ComplyAdvantage on 2024-04-24, and golden.com now serves an acquisition notice. The API v2 endpoints and the Scalar API reference at docs.golden.com remain live and were re-verified on 2026-08-14.
+
+Backed by: a16z ($59.5M raised across seed, Series A and Series B)

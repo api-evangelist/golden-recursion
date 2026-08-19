@@ -1,32 +1,114 @@
-generated: '2026-07-19'
+generated: '2026-08-14'
 method: searched
-source: https://github.com/goldenrecursion/godel
+source: >-
+  https://api.github.com/orgs/goldenrecursion/repos, GitHub releases/tags,
+  https://pypi.org/simple/godel/ and https://pypi.org/simple/goldnlp/ (PEP 691 JSON)
 notes: >-
-  Golden Recursion's first-party client library is godel, the open-source Python
-  SDK for Golden's decentralized knowledge-graph protocol (GraphQL). The REST
-  "Golden API v2" (openapi/golden-recursion-openapi-original.json) ships no
-  dedicated client SDK and is called directly over HTTPS with an apikey header.
+  Golden Recursion's two first-party open-source libraries are godel (the Python
+  SDK) and goldnlp (an NLP/NLU framework). BOTH ARE UNINSTALLABLE FROM PyPI AS OF
+  2026-08-14: the project names are reserved on PyPI but the simple index returns
+  `"files": []` and `"versions": []` for each, and https://pypi.org/pypi/<name>/json
+  returns HTTP 404 — so `pip install godel` and `pip install goldnlp` both fail.
+  The only distribution that exists is the GitHub source tree. Version and date
+  below are therefore read from the git tag/release and the in-repo
+  pyproject.toml rather than from a registry.
+  Both libraries target the golden.xyz PROTOCOL GraphQL API, not the golden.com
+  REST API v2 profiled in openapi/ — and golden.xyz no longer resolves (DNS
+  failure on golden.xyz, docs.golden.xyz and dgraph.golden.xyz, probed
+  2026-08-14), so the backend these SDKs wrap is gone. The REST Golden API v2
+  ships no client library at all and is called directly over HTTPS with an
+  `apikey` header.
+  This is the abandonment picture: last godel release 2023-03-31, last commit on
+  the default branch 2024-01-29, company acquired by ComplyAdvantage 2024-04-24.
+sdk_count: 2
 packages:
   - language: python
     registry: pypi
     name: godel
-    url: https://pypi.org/project/godel/
+    version: 0.8.0
+    published: '2023-03-31'
+    version_source: github-release
+    registry_status: name-reserved-no-files
+    url: https://github.com/goldenrecursion/godel
+    pypi_url: https://pypi.org/project/godel/
     source: https://github.com/goldenrecursion/godel
-    install: pip install godel
+    install: null
     license: Apache-2.0
     official: true
+    targets: golden.xyz protocol GraphQL API (host no longer resolves)
     description: >-
-      Golden's Python SDK — API wrapper, data-processing framework and web3
-      toolkit for programmatic query and ingest against the Golden protocol
-      GraphQL API (GoldenAPI client, JWT auth).
+      Golden's open-source Python SDK for its decentralized canonical knowledge
+      graph — API wrapper (GoldenAPI/sgqlc client), data-processing framework and
+      web3 toolkit for programmatic query and ingest against the protocol GraphQL
+      API.
+    note: >-
+      version/published read from git tag v0.8.0 (published 2023-03-31) and
+      pyproject.toml `version = "0.8.0"`. PyPI carries the project NAME but zero
+      published files (https://pypi.org/simple/godel/ -> {"files":[],"versions":[]}),
+      so `pip install godel` cannot resolve a distribution; `install:` is null
+      rather than a command that does not work. Last default-branch commit
+      2024-01-29 (a WhiteSource config merge), i.e. no functional change in over
+      two years.
   - language: python
     registry: pypi
     name: goldnlp
-    url: https://pypi.org/project/goldnlp/
+    version: 0.0.2
+    published: '2022-11-08'
+    version_source: github-release
+    registry_status: name-reserved-no-files
+    url: https://github.com/goldenrecursion/goldnlp
+    pypi_url: https://pypi.org/project/goldnlp/
     source: https://github.com/goldenrecursion/goldnlp
-    install: pip install goldnlp
+    install: null
     license: Apache-2.0
     official: true
+    targets: Golden Knowledge Graph Protocol
     description: >-
-      NLP/NLU Python package and framework for the Golden Knowledge Graph
-      Protocol.
+      Golden's NLP/NLU Python package and framework for the Golden Knowledge
+      Graph Protocol.
+    note: >-
+      version/published read from git tag v0.0.2 (published 2022-11-08) and
+      pyproject.toml `version = "0.0.2"`. PyPI carries the project NAME but zero
+      published files (https://pypi.org/simple/goldnlp/ -> {"files":[],"versions":[]}),
+      so `pip install goldnlp` cannot resolve a distribution. Last
+      default-branch commit 2024-01-29.
+registries_checked:
+  - registry: pypi
+    result: both names reserved, zero published files
+  - registry: npm
+    result: no first-party Golden package found
+  - registry: rubygems
+    result: none
+  - registry: crates.io
+    result: none
+  - registry: nuget
+    result: none
+  - registry: maven-central
+    result: none
+  - registry: packagist
+    result: none
+  - registry: pkg.go.dev
+    result: none
+x-evidence:
+  - url: https://pypi.org/simple/godel/
+    status: 200
+    fetched: '2026-08-14'
+    note: '{"files":[],"versions":[]} — name reserved, nothing published'
+  - url: https://pypi.org/pypi/godel/json
+    status: 404
+    fetched: '2026-08-14'
+  - url: https://pypi.org/simple/goldnlp/
+    status: 200
+    fetched: '2026-08-14'
+    note: '{"files":[],"versions":[]} — name reserved, nothing published'
+  - url: https://pypi.org/pypi/goldnlp/json
+    status: 404
+    fetched: '2026-08-14'
+  - url: https://api.github.com/repos/goldenrecursion/godel/releases
+    status: 200
+    fetched: '2026-08-14'
+    note: latest release v0.8.0 published 2023-03-31
+  - url: https://golden.xyz/
+    status: 0
+    fetched: '2026-08-14'
+    note: DNS resolution failure — the protocol backend both SDKs wrap is gone

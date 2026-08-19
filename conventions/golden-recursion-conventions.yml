@@ -35,9 +35,20 @@ error_envelope:
   content_type: application/json
   ref: errors/golden-recursion-problem-types.yml
 rate_limiting:
-  signaled: true
+  signaled: false
   mechanism: HTTP 429 throttled response (client_error/throttled)
-  ref: errors/golden-recursion-problem-types.yml
+  response_headers: []
+  note: >-
+    A 429 is declared on every operation, but no rate-limit response headers are
+    emitted (probed live 2026-08-14 — no X-RateLimit-*, no RateLimit-*, no
+    Retry-After) and no numeric limit or window is published. Consumption is
+    metered commercially in monthly data credits per plan.
+  ref: rate-limits/golden-recursion-rate-limits.yml
+  errors_ref: errors/golden-recursion-problem-types.yml
+plans:
+  metering: data-credits
+  ref: plans/golden-recursion-plans-pricing.yml
+  note: pageSize default is plan-dependent (2 free / 10 paid, max 100).
 citations:
   notes: >-
     Entity property values carry citations (title + url) so every value can be

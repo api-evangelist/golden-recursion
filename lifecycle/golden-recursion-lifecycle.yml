@@ -1,11 +1,28 @@
-generated: '2026-07-19'
+generated: '2026-08-14'
 method: searched
-source: https://docs.golden.com/ and openapi/golden-recursion-openapi-original.json
+source: >-
+  https://golden.com/ (acquisition notice), https://docs.golden.com/ (source
+  comment), https://docs.golden.com/openapi.json, live probe of
+  https://golden.com/api/v2/public/schema/entityTypes/
 notes: >-
-  Versioning is URI-path based (v2 in the path). No public status page was found
-  (status.golden.com does not resolve). No formal deprecation policy or
-  Sunset/Deprecation header support was documented, and no operations are marked
-  deprecated in the spec — so no StatusPage or Deprecation pointer is emitted.
+  Versioning is URI-path based (v2 in the path). No public status page exists
+  (status.golden.com does not resolve — DNS failure, probed 2026-08-14). No
+  deprecation policy, no Sunset/Deprecation header support, and no operations
+  marked deprecated in the spec — so neither a StatusPage nor a Deprecation
+  pointer is emitted. golden.com/changelog and golden.com/roadmap both return
+  HTTP 200 but serve the app's generic client-rendered shell (title "Golden",
+  no page-specific content), so neither is a published document and neither
+  earns a pointer.
+  COMPANY LIFECYCLE: golden.com now serves an acquisition notice — Golden was
+  acquired by ComplyAdvantage on 2024-04-24 and its technology folded into
+  ComplyAdvantage's ingestion pipeline. The product surface is in wind-down but
+  NOT dead: /pricing, /product/api, /signup, /login and /docs still serve the
+  original React app, and the REST API still answers (HTTP 403 with a live DRF
+  JSON error on an anonymous call, 2026-08-14).
+  DOCS ARE A FROZEN SNAPSHOT: the source of https://docs.golden.com/ carries the
+  comment "Scalar API reference. Static snapshot of the Golden API v2 spec,
+  previously proxied from the entity-graph API server (pathfinder, decommissioned
+  2026-07-02)." The reference is no longer generated from a running service.
 versioning:
   scheme: uri-path
   current: v2
@@ -14,9 +31,57 @@ versioning:
 deprecation:
   policy_url: null
   sunset_header: false
+  deprecated_operations: []
 sla:
   url: null
   uptime_target: null
 status_page: null
-roadmap: https://golden.com/roadmap
-deprecated_operations: []
+changelog: null
+roadmap: null
+company_status:
+  state: acquired
+  acquirer: ComplyAdvantage
+  acquirer_url: https://complyadvantage.com
+  announced: '2024-04-24'
+  announcement: https://complyadvantage.com/press-media/complyadvantage-acquires-golden/
+  source: https://golden.com/
+api_status:
+  callable: true
+  last_verified: '2026-08-14'
+  evidence: >-
+    GET https://golden.com/api/v2/public/schema/entityTypes/ returned HTTP 403
+    application/json with the documented permission_denied envelope, i.e. the
+    service is live and enforcing auth.
+  documentation_mode: static-snapshot
+  documentation_note: >-
+    docs.golden.com is a Scalar reference over a checked-in openapi.json; the
+    upstream spec server ("pathfinder") was decommissioned 2026-07-02 per the
+    page's own source comment.
+  spec_drift: none
+  spec_drift_note: >-
+    https://docs.golden.com/openapi.json fetched 2026-08-14 is byte-identical to
+    openapi/_original/golden-recursion-openapi-original.json — 8 paths, 8
+    operations, unchanged.
+x-evidence:
+  - url: https://golden.com/
+    status: 200
+    fetched: '2026-08-14'
+    note: acquisition notice page
+  - url: https://docs.golden.com/openapi.json
+    status: 200
+    fetched: '2026-08-14'
+  - url: https://golden.com/api/v2/public/schema/entityTypes/
+    status: 403
+    fetched: '2026-08-14'
+  - url: https://status.golden.com/
+    status: 0
+    fetched: '2026-08-14'
+    note: DNS resolution failure
+  - url: https://golden.com/changelog
+    status: 200
+    fetched: '2026-08-14'
+    note: soft-200 — generic SPA shell, title "Golden", no changelog content
+  - url: https://golden.com/roadmap
+    status: 200
+    fetched: '2026-08-14'
+    note: soft-200 — generic SPA shell, title "Golden", no roadmap content

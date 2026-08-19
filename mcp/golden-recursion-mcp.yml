@@ -2,11 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/golden-recursion-openapi-original.json
-notes: >-
-  No official hosted/remote MCP server was found for Golden (no @modelcontextprotocol
-  package, no docs reference, no registry entry). This is a DERIVED candidate tool
-  list — one tool per public read operation in Golden API v2. Auth is an apikey
-  header; all tools are read-only (GET).
+notes: No official hosted/remote MCP server was found for Golden (no @modelcontextprotocol package, no
+  docs reference, no registry entry). This is a DERIVED candidate tool list — one tool per public read
+  operation in Golden API v2. Auth is an apikey header; all tools are read-only (GET).
 server:
   name: golden-recursion
   transport: http
@@ -16,27 +14,42 @@ server:
     in: header
     name: apikey
 tools:
-  - name: list_entities
-    description: List/search entities in the Golden knowledge graph, filtered by entity type, predicate, or IDs (cursor-paginated).
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_entities_list
-  - name: get_entity
-    description: Retrieve a single entity and its cited properties by entity ID.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_entities_retrieve
-  - name: get_query_results
-    description: Get the results of a saved Golden query by query ID.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_queries_results_list
-  - name: get_query_results_by_permalink
-    description: Get the results of a saved Golden query by its permalink.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_queries_permalink_list
-  - name: list_entity_types
-    description: List the entity-type schema (available entity types) in Golden.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_entityTypes_list
-  - name: get_entity_type
-    description: Retrieve a single entity-type schema by entity type ID.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_entityTypes_retrieve
-  - name: list_predicates
-    description: List the predicate schema (available predicates / properties) in Golden.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_predicates_list
-  - name: get_predicate
-    description: Retrieve a single predicate schema by predicate ID.
-    source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_predicates_retrieve
+- name: list_entities
+  description: List/search entities in the Golden knowledge graph, filtered by entity type, predicate,
+    or IDs (cursor-paginated).
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_entities_list
+- name: get_entity
+  description: Retrieve a single entity and its cited properties by entity ID.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_entities_retrieve
+- name: get_query_results
+  description: Get the results of a saved Golden query by query ID.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_queries_results_list
+- name: get_query_results_by_permalink
+  description: Get the results of a saved Golden query by its permalink.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_queries_permalink_list
+- name: list_entity_types
+  description: List the entity-type schema (available entity types) in Golden.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_entityTypes_list
+- name: get_entity_type
+  description: Retrieve a single entity-type schema by entity type ID.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_entityTypes_retrieve
+- name: list_predicates
+  description: List the predicate schema (available predicates / properties) in Golden.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_predicates_list
+- name: get_predicate
+  description: Retrieve a single predicate schema by predicate ID.
+  source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_predicates_retrieve
+deployment:
+  mode: none
+  auth: api-key
+  verified: derived
+  tools: 8
+  checked: '2026-08-14'
+  source: catalog MCP census; re-searched 2026-08-14
+  note: >-
+    Re-searched 2026-08-14 — nothing found in the official MCP registry
+    (registry.modelcontextprotocol.io?search=golden), on npm, or in Golden's
+    docs. https://golden.com/mcp returns HTTP 200 but is the app's generic
+    client-rendered shell (a soft-200, not an MCP endpoint) and
+    https://golden.com/api/mcp returns 404. Nobody ships a server; mode is none
+    and no endpoint is recorded.

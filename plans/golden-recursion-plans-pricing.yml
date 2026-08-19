@@ -1,0 +1,93 @@
+generated: '2026-08-14'
+method: searched
+source: https://golden.com/pricing
+docs:
+  pricing: https://golden.com/pricing
+  data_credits: https://golden.com/product/data-credits
+  api_product: https://golden.com/product/api
+  upgrade: https://golden.com/upgrade/pricing
+notes: >-
+  Golden meters everything — the web app and the Golden API v2 alike — in "data
+  credits". One credit is consumed per structured field requested or entity
+  exported, and each tier carries a recurring monthly credit allowance that can
+  be topped up without changing plan (https://golden.com/product/data-credits).
+  Only the Enterprise tier names the API explicitly ("API at scale"); the
+  published self-serve tiers do not state a separate API price, so an API
+  consumer draws on the same monthly credit pool as the UI. The OpenAPI reflects
+  the tier split in one place only: the `pageSize` parameter defaults to 2 on the
+  Free plan and 10 on any paid plan (maximum 100).
+  Read alongside rate-limits/golden-recursion-rate-limits.yml.
+currency: USD
+billing_period: month
+plan_count: 4
+plans:
+  - name: Free
+    price: 0
+    currency: USD
+    period: month
+    self_serve: true
+    included:
+      data_credits_per_month: 10
+    limits:
+      api_page_size_default: 2
+      api_page_size_max: 100
+    features:
+      - Browse 300,000+ topics
+      - Search and explore the knowledge graph
+    signup: https://golden.com/signup
+  - name: Team
+    price: 25
+    currency: USD
+    period: month
+    self_serve: true
+    included:
+      data_credits_per_month: 125
+    limits:
+      api_page_size_default: 10
+      api_page_size_max: 100
+    features:
+      - CSV and list exports
+      - Saved queries
+      - Team workspace
+    signup: https://golden.com/upgrade/pricing?tier=team
+  - name: Business
+    price: 500
+    currency: USD
+    period: month
+    self_serve: true
+    included:
+      data_credits_per_month: 2500
+    limits:
+      api_page_size_default: 10
+      api_page_size_max: 100
+    features:
+      - Everything in Team
+      - Full query tool access
+      - Priority support
+    signup: https://golden.com/upgrade/pricing?tier=business
+  - name: Enterprise
+    price: null
+    price_model: custom
+    currency: USD
+    period: month
+    self_serve: false
+    included:
+      data_credits_per_month: null
+      note: Custom data volumes and credits.
+    features:
+      - API at scale
+      - Data requests and enrichment
+      - Dedicated support
+    contact: mailto:hello@golden.com
+overage:
+  model: credit-topup
+  note: >-
+    Additional data credits can be purchased ad hoc ("top up anytime") without
+    changing tier. No published per-credit price.
+x-evidence:
+  - url: https://golden.com/pricing
+    status: 200
+    fetched: '2026-08-14'
+  - url: https://golden.com/product/data-credits
+    status: 200
+    fetched: '2026-08-14'

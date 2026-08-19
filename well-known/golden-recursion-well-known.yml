@@ -1,21 +1,29 @@
-generated: '2026-07-19'
+generated: '2026-08-14'
 method: searched
 source: probe of /.well-known/* on golden.com and docs.golden.com
+checked: '2026-08-14'
 notes: >-
-  No genuine machine-readable .well-known discovery document is published. On
-  golden.com every probed path returns 404. On docs.golden.com every path
-  returns HTTP 200 but serves the Scalar API-reference SPA HTML (content-type
-  text/html) rather than a real well-known document — these are catch-all
-  false positives and are NOT indexed as documents below. No apis.yml WellKnown
-  pointer is emitted.
+  Re-probed 2026-08-14; the 2026-07-19 result is unchanged. No genuine
+  machine-readable .well-known discovery document is published. On golden.com
+  every probed path returns 404. On docs.golden.com every path returns HTTP 200
+  but serves the 677-byte Scalar API-reference SPA HTML (content-type text/html,
+  title "Golden API Documentation") rather than a real well-known document —
+  these are catch-all false positives and are NOT indexed as documents below.
+  No apis.yml WellKnown pointer is emitted, and no SecurityTxt pointer, because
+  nothing returned a 200 carrying a real document.
+  The A2A agent-card paths were probed in the same sweep and are recorded here
+  for completeness; no agent card exists, so no a2a/ artifact was written.
 hosts:
   - host: https://golden.com
     documents:
       - {path: /.well-known/security.txt, status: 404}
       - {path: /.well-known/openid-configuration, status: 404}
       - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
       - {path: /.well-known/api-catalog, status: 404}
       - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
   - host: https://docs.golden.com
     documents:
       - {path: /.well-known/security.txt, status: 200, real: false, note: SPA catch-all HTML, not a security.txt}
@@ -23,3 +31,5 @@ hosts:
       - {path: /.well-known/oauth-authorization-server, status: 200, real: false, note: SPA catch-all HTML}
       - {path: /.well-known/api-catalog, status: 200, real: false, note: SPA catch-all HTML}
       - {path: /.well-known/ai-plugin.json, status: 200, real: false, note: SPA catch-all HTML}
+      - {path: /.well-known/agent-card.json, status: 200, real: false, note: SPA catch-all HTML, rejected as an agent card}
+      - {path: /.well-known/agent.json, status: 200, real: false, note: SPA catch-all HTML, rejected as an agent card}
