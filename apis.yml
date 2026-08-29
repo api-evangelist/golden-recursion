@@ -15,6 +15,18 @@ description: >-
   Golden was acquired by ComplyAdvantage on 2024-04-24 and golden.com now serves
   an acquisition notice, though the API v2 endpoints and the Scalar API
   reference at docs.golden.com remain live and were re-verified 2026-08-14.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
