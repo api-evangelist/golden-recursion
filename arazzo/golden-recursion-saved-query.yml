@@ -4,29 +4,29 @@ info:
   version: 1.0.0
   summary: Resolve a saved Golden query by its permalink and page through its entity results.
 sourceDescriptions:
-  - name: golden
-    url: ../openapi/golden-recursion-openapi-original.json
-    type: openapi
+- name: queryApiApi
+  url: ../openapi/golden-recursion-query-api-api-openapi.yml
+  type: openapi
 workflows:
-  - workflowId: runSavedQuery
-    summary: Fetch the results of a saved Golden query using its shareable permalink.
-    inputs:
-      type: object
-      properties:
-        permalink:
-          type: string
-      required: [permalink]
-    steps:
-      - stepId: getResults
-        operationId: public_api_queries_permalink_list
-        parameters:
-          - name: permalink
-            in: path
-            value: $inputs.permalink
-        successCriteria:
-          - condition: $statusCode == 200
-        outputs:
-          results: $response.body#/results
-          next: $response.body#/next
+- workflowId: runSavedQuery
+  summary: Fetch the results of a saved Golden query using its shareable permalink.
+  inputs:
+    type: object
+    properties:
+      permalink:
+        type: string
+    required: [permalink]
+  steps:
+  - stepId: getResults
+    operationId: public_api_queries_permalink_list
+    parameters:
+    - name: permalink
+      in: path
+      value: $inputs.permalink
+    successCriteria:
+    - condition: $statusCode == 200
     outputs:
-      results: $steps.getResults.outputs.results
+      results: $response.body#/results
+      next: $response.body#/next
+  outputs:
+    results: $steps.getResults.outputs.results
