@@ -117,6 +117,8 @@ apis:
   - type: GettingStarted
     url: https://golden.com/product/api
 common:
+- type: Website
+  url: https://www.golden.com/
 - type: DeveloperPortal
   url: https://golden.com/product/api
 - type: Documentation
