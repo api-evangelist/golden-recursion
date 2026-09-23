@@ -41,15 +41,7 @@ tools:
   source_operation: openapi/golden-recursion-openapi-original.json#public_api_schema_predicates_retrieve
 deployment:
   mode: none
-  auth: api-key
   verified: derived
   tools: 8
-  checked: '2026-08-14'
-  source: catalog MCP census; re-searched 2026-08-14
-  note: >-
-    Re-searched 2026-08-14 — nothing found in the official MCP registry
-    (registry.modelcontextprotocol.io?search=golden), on npm, or in Golden's
-    docs. https://golden.com/mcp returns HTTP 200 but is the app's generic
-    client-rendered shell (a soft-200, not an MCP endpoint) and
-    https://golden.com/api/mcp returns 404. Nobody ships a server; mode is none
-    and no endpoint is recorded.
+  checked: '2026-08-12'
+  source: catalog MCP census

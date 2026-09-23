@@ -1,9 +1,7 @@
 {
   "provider": "golden-recursion",
   "sources": [
-    "golden-recursion-entity-api-api-openapi.yml",
-    "golden-recursion-query-api-api-openapi.yml",
-    "golden-recursion-schema-api-api-openapi.yml"
+    "_original/golden-recursion-openapi-original.json"
   ],
   "outputs": [
     "golden-recursion-entity-api-api-openapi.yml",
@@ -13,6 +11,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "golden-recursion-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "golden-recursion-openapi-original.json: declared missing tag: Entity API",
+    "golden-recursion-openapi-original.json: declared missing tag: Query API",
+    "golden-recursion-openapi-original.json: declared missing tag: Schema API",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "golden-recursion-entity-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "golden-recursion-query-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "golden-recursion-schema-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
