@@ -64,8 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Golden Recursion Inc. built Golden, a San Francisco company (2017–2024) that used machine intelligence to construct a self-building knowledge graph of millions of connected entities — companies, people, venture-capital firms and products — each described by structured, cited properties. The Golden API v2 gives read-only, programmatic access to the same data that powers the Golden Query Tool.
+Golden Recursion Inc. builds Golden, a San Francisco company using machine intelligence to construct a self-building knowledge graph of millions of connected entities — companies, people, venture-capital firms and products — each described by structured, cited properties. The Golden API v2 gives developers read-only, programmatic access to the same data that powers the Golden Query Tool: retrieve entities and their cited properties, pull the results of saved queries by ID or permalink, and introspect the entity-type and predicate schema. Responses are structured JSON with underlying source citations so every value can be traced. Authentication is a simple apikey header. Golden also published godel, an open-source Python SDK for its separate golden.xyz protocol GraphQL API. Backed by a16z ($59.5M raised); Golden was acquired by ComplyAdvantage on 2024-04-24 and golden.com now serves an acquisition notice, though the API v2 endpoints and the Scalar API reference at docs.golden.com remain live and were re-verified 2026-08-14.
 
-Golden was acquired by ComplyAdvantage on 2024-04-24, and golden.com now serves an acquisition notice. The API v2 endpoints and the Scalar API reference at docs.golden.com remain live and were re-verified on 2026-08-14.
+**Areas:** Company · Knowledge Graph · Data Enrichment · Entity Data · Company Data · Artificial Intelligence · Semantic Web · Data
 
-Backed by: a16z ($59.5M raised across seed, Series A and Series B)
+## Golden Recursion on APIs.io
+
+Everything profiled for Golden Recursion is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/golden-recursion/](https://apis.io/providers/golden-recursion/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Golden Recursion Entity API](https://apis.io/apis/golden-recursion/golden-recursion-entity-api-api/) — The Entity API API from Golden Recursion — 2 operation(s) for entity api.
+- [Golden Recursion Query API](https://apis.io/apis/golden-recursion/golden-recursion-query-api-api/) — The Query API API from Golden Recursion — 2 operation(s) for query api.
+- [Golden Recursion Schema API](https://apis.io/apis/golden-recursion/golden-recursion-schema-api-api/) — The Schema API API from Golden Recursion — 4 operation(s) for schema api.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (2)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Golden — discover schema then enrich an entity](https://apis.io/arazzos/golden-recursion/golden-recursion-enrich-entity/)
+- [Golden — run a saved query by permalink](https://apis.io/arazzos/golden-recursion/golden-recursion-saved-query/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [golden-recursion](https://apis.io/servers/golden-recursion/golden-recursion/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Golden Recursion Agentic Access](https://apis.io/agentic-access/golden-recursion/golden-recursion-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Golden API v2 Entity API API](https://apis.io/collections/golden-recursion/open-golden-recursion-entity-api-api/)
+- [Golden API v2 Entity API Query API API](https://apis.io/collections/golden-recursion/open-golden-recursion-query-api-api/)
+- [Golden API v2 Entity API Schema API API](https://apis.io/collections/golden-recursion/open-golden-recursion-schema-api-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Golden Recursion Openapi Overlay](https://apis.io/overlays/golden-recursion/golden-recursion-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Golden Recursion Authentication](https://apis.io/security/golden-recursion/golden-recursion-authentication/)
+- [Golden Recursion Domain Security](https://apis.io/security/golden-recursion/golden-recursion-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Golden Recursion Plans Pricing](https://apis.io/plans/golden-recursion/golden-recursion-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Golden Recursion Rate Limits](https://apis.io/rate-limits/golden-recursion/golden-recursion-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.golden.com/)
+- [Documentation](https://docs.golden.com/)
+- [Getting started](https://golden.com/product/api)
+- [API reference](https://docs.golden.com/)
+- [Pricing](https://golden.com/pricing)
+- [Sign up](https://golden.com/signup)
+- [Support](https://goldenhq.notion.site/goldenhq/Golden-Guide-1eef7518f3ca43da8d6ee4d54307801b)
+- [Blog](https://golden.com/news/)
+- [Terms of service](https://golden.com/about/terms-of-service)
+- [Privacy policy](https://golden.com/about/privacy-policy)
+- [GitHub](https://github.com/goldenrecursion)
+
+## API Evangelist rating
+
+**Kin Score 38.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 49.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 28.0 |
+| Access clarity | 38.2 |
+
+**Agent readiness 36.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/golden-recursion/](https://apis.io/providers/golden-recursion/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Golden Recursion: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/golden-recursion/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
